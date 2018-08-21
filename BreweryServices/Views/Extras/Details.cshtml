@@ -1,0 +1,42 @@
+﻿@model BreweryServices.Models.Extra
+
+@{
+    ViewBag.Title = "Extra's Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Extra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Extras_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extras_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Extras_Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extras_Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Extras_Stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extras_Stock)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Extras_ID }) |
+    @Html.ActionLink("Back to Extras List", "Index")
+</p>

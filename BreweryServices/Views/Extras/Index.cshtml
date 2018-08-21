@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BreweryServices.Models.Extra>
+
+@{
+    ViewBag.Title = "Extras Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add Extra", "Create")
+    <br />
+    <br />
+    @Html.ActionLink("Main Menu", "Menu")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Extras_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Extras_Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Extras_Stock)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Extras_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Extras_Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Extras_Stock)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Extras_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Extras_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Extras_ID })
+        </td>
+    </tr>
+}
+
+</table>

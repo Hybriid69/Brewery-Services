@@ -1,0 +1,50 @@
+﻿@model BreweryServices.Models.Vehicle
+
+@{
+    ViewBag.Title = "Vehicle Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vehicle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_NextService)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_NextService)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Vehicle_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

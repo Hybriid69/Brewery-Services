@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="981a7a23803149c3a6d67abbeb466af6" Name="Diagram1">
+        <EntityTypeShape EntityType="BreweryServicesModel.Admin" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreweryServicesModel.Beverage" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreweryServicesModel.Customer" Width="1.5" PointX="3.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreweryServicesModel.Delivery" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreweryServicesModel.Employee" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreweryServicesModel.Extra" Width="1.5" PointX="3.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreweryServicesModel.Order" Width="1.5" PointX="6.375" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BreweryServicesModel.Vehicle" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BreweryServicesModel.FK__Orders__Beverage__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="BreweryServicesModel.FK__Orders__Customer__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="BreweryServicesModel.FK__Delivery__Employ__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="BreweryServicesModel.FK__Delivery__Vehicl__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="BreweryServicesModel.FK__Orders__Employee__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="BreweryServicesModel.FK__Orders__Extras_I__398D8EEE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

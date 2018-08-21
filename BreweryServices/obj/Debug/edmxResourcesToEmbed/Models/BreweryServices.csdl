@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BreweryServicesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Admin_EmployeeID" />
+    </Key>
+    <Property Name="Admin_EmployeeID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Admin_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Admin_FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Admin_Lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Admin_IdentityNumber" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="Admin_JobRole" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Admin_Dob" Type="DateTime" Precision="0" />
+    <Property Name="Admin_CellNumber" Type="String" MaxLength="13" Unicode="true" FixedLength="false" />
+    <Property Name="Admin_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Admin_DateJoined" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Beverage">
+    <Key>
+      <PropertyRef Name="Beverage_ID" />
+    </Key>
+    <Property Name="Beverage_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Beverage_Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Beverage_Size" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Beverage_QuantityInStock" Type="Int32" />
+    <Property Name="Beverage_Price" Type="Double" />
+    <Property Name="Beverage_Type" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Beverage__37A5467C" FromRole="Beverage" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Customer_ID" />
+    </Key>
+    <Property Name="Customer_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Customer_FirstName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Customer_LastName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Customer_IdentificationNumber" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Customer_DOB" Type="DateTime" Precision="0" />
+    <Property Name="Customer_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Cell" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="Customer_Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Customer__36B12243" FromRole="Customer" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Delivery">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Vehicle_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Delivery_Date" Type="DateTime" Precision="0" />
+    <Property Name="Delivery_Time" Type="Time" Precision="7" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Delivery__Employ__1A14E395" FromRole="Delivery" ToRole="Employee" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__Delivery__Vehicl__1B0907CE" FromRole="Delivery" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Employee_FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_Lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_IdentityNumber" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="Employee_JobRole" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Employee_Dob" Type="DateTime" Precision="0" />
+    <Property Name="Employee_CellNumber" Type="Int64" />
+    <Property Name="Employee_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_DateJoined" Type="DateTime" Precision="0" />
+    <Property Name="Employee_BasicPay" Type="Double" />
+    <Property Name="Employee_HoursWorked" Type="Int32" />
+    <NavigationProperty Name="Delivery" Relationship="Self.FK__Delivery__Employ__1A14E395" FromRole="Employee" ToRole="Delivery" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Employee__38996AB5" FromRole="Employee" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Extra">
+    <Key>
+      <PropertyRef Name="Extras_ID" />
+    </Key>
+    <Property Name="Extras_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Extras_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Extras_Cost" Type="Int32" />
+    <Property Name="Extras_Stock" Type="Int32" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Extras_I__398D8EEE" FromRole="Extras" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Order_Number" />
+    </Key>
+    <Property Name="Order_Number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Customer_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Beverage_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Extras_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_FirstName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Customer_LastName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Beverage_Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Beverage_Quantity" Type="Int32" />
+    <Property Name="Extras_Quantity" Type="Int32" />
+    <Property Name="Order_Status" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Payment_Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Total_Cost" Type="Int32" />
+    <NavigationProperty Name="Beverage" Relationship="Self.FK__Orders__Beverage__37A5467C" FromRole="Orders" ToRole="Beverage" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Orders__Customer__36B12243" FromRole="Orders" ToRole="Customer" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Orders__Employee__38996AB5" FromRole="Orders" ToRole="Employee" />
+    <NavigationProperty Name="Extra" Relationship="Self.FK__Orders__Extras_I__398D8EEE" FromRole="Orders" ToRole="Extras" />
+    <Property Name="Beverage_Cost" Type="Int32" />
+    <Property Name="Extras_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Extras_Cost" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Vehicle_ID" />
+    </Key>
+    <Property Name="Vehicle_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Vehicle_Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Vehicle_Model" Type="Int32" />
+    <Property Name="Vehicle_Type" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+    <Property Name="Vehicle_NextService" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Deliveries" Relationship="Self.FK__Delivery__Vehicl__1B0907CE" FromRole="Vehicle" ToRole="Delivery" />
+  </EntityType>
+  <Association Name="FK__Orders__Beverage__37A5467C">
+    <End Role="Beverage" Type="Self.Beverage" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beverage">
+        <PropertyRef Name="Beverage_ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Beverage_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Customer__36B12243">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Customer_ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Customer_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Delivery__Employ__1A14E395">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Delivery" Type="Self.Delivery" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Delivery">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Delivery__Vehicl__1B0907CE">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="Delivery" Type="Self.Delivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="Vehicle_ID" />
+      </Principal>
+      <Dependent Role="Delivery">
+        <PropertyRef Name="Vehicle_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Employee__38996AB5">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Extras_I__398D8EEE">
+    <End Role="Extras" Type="Self.Extra" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Extras">
+        <PropertyRef Name="Extras_ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Extras_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BreweryServicesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Beverages" EntityType="Self.Beverage" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Deliveries" EntityType="Self.Delivery" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Extras" EntityType="Self.Extra" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+    <AssociationSet Name="FK__Orders__Beverage__37A5467C" Association="Self.FK__Orders__Beverage__37A5467C">
+      <End Role="Beverage" EntitySet="Beverages" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Customer__36B12243" Association="Self.FK__Orders__Customer__36B12243">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Delivery__Employ__1A14E395" Association="Self.FK__Delivery__Employ__1A14E395">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Delivery" EntitySet="Deliveries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Delivery__Vehicl__1B0907CE" Association="Self.FK__Delivery__Vehicl__1B0907CE">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="Delivery" EntitySet="Deliveries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Employee__38996AB5" Association="Self.FK__Orders__Employee__38996AB5">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Extras_I__398D8EEE" Association="Self.FK__Orders__Extras_I__398D8EEE">
+      <End Role="Extras" EntitySet="Extras" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BreweryServicesModelStoreContainer" CdmEntityContainer="BreweryServicesEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="BreweryServicesModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Admin_Password" ColumnName="Admin_Password" />
+          <ScalarProperty Name="Admin_EmployeeID" ColumnName="Admin_EmployeeID" />
+          <ScalarProperty Name="Admin_FirstName" ColumnName="Admin_FirstName" />
+          <ScalarProperty Name="Admin_Lastname" ColumnName="Admin_Lastname" />
+          <ScalarProperty Name="Admin_IdentityNumber" ColumnName="Admin_IdentityNumber" />
+          <ScalarProperty Name="Admin_JobRole" ColumnName="Admin_JobRole" />
+          <ScalarProperty Name="Admin_Dob" ColumnName="Admin_Dob" />
+          <ScalarProperty Name="Admin_CellNumber" ColumnName="Admin_CellNumber" />
+          <ScalarProperty Name="Admin_Address" ColumnName="Admin_Address" />
+          <ScalarProperty Name="Admin_DateJoined" ColumnName="Admin_DateJoined" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Beverages">
+      <EntityTypeMapping TypeName="BreweryServicesModel.Beverage">
+        <MappingFragment StoreEntitySet="Beverage">
+          <ScalarProperty Name="Beverage_ID" ColumnName="Beverage_ID" />
+          <ScalarProperty Name="Beverage_Name" ColumnName="Beverage_Name" />
+          <ScalarProperty Name="Beverage_Size" ColumnName="Beverage_Size" />
+          <ScalarProperty Name="Beverage_QuantityInStock" ColumnName="Beverage_QuantityInStock" />
+          <ScalarProperty Name="Beverage_Price" ColumnName="Beverage_Price" />
+          <ScalarProperty Name="Beverage_Type" ColumnName="Beverage_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="BreweryServicesModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="Customer_FirstName" ColumnName="Customer_FirstName" />
+          <ScalarProperty Name="Customer_LastName" ColumnName="Customer_LastName" />
+          <ScalarProperty Name="Customer_IdentificationNumber" ColumnName="Customer_IdentificationNumber" />
+          <ScalarProperty Name="Customer_DOB" ColumnName="Customer_DOB" />
+          <ScalarProperty Name="Customer_Password" ColumnName="Customer_Password" />
+          <ScalarProperty Name="Customer_Cell" ColumnName="Customer_Cell" />
+          <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+          <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deliveries">
+      <EntityTypeMapping TypeName="BreweryServicesModel.Delivery">
+        <MappingFragment StoreEntitySet="Delivery">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
+          <ScalarProperty Name="Employee_FirstName" ColumnName="Employee_FirstName" />
+          <ScalarProperty Name="Employee_LastName" ColumnName="Employee_LastName" />
+          <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+          <ScalarProperty Name="Delivery_Time" ColumnName="Delivery_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="BreweryServicesModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Employee_FirstName" ColumnName="Employee_FirstName" />
+          <ScalarProperty Name="Employee_Lastname" ColumnName="Employee_Lastname" />
+          <ScalarProperty Name="Employee_IdentityNumber" ColumnName="Employee_IdentityNumber" />
+          <ScalarProperty Name="Employee_JobRole" ColumnName="Employee_JobRole" />
+          <ScalarProperty Name="Employee_Dob" ColumnName="Employee_Dob" />
+          <ScalarProperty Name="Employee_CellNumber" ColumnName="Employee_CellNumber" />
+          <ScalarProperty Name="Employee_Address" ColumnName="Employee_Address" />
+          <ScalarProperty Name="Employee_DateJoined" ColumnName="Employee_DateJoined" />
+          <ScalarProperty Name="Employee_BasicPay" ColumnName="Employee_BasicPay" />
+          <ScalarProperty Name="Employee_HoursWorked" ColumnName="Employee_HoursWorked" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Extras">
+      <EntityTypeMapping TypeName="BreweryServicesModel.Extra">
+        <MappingFragment StoreEntitySet="Extras">
+          <ScalarProperty Name="Extras_ID" ColumnName="Extras_ID" />
+          <ScalarProperty Name="Extras_Name" ColumnName="Extras_Name" />
+          <ScalarProperty Name="Extras_Cost" ColumnName="Extras_Cost" />
+          <ScalarProperty Name="Extras_Stock" ColumnName="Extras_Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="BreweryServicesModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Extras_Cost" ColumnName="Extras_Cost" />
+          <ScalarProperty Name="Extras_Name" ColumnName="Extras_Name" />
+          <ScalarProperty Name="Beverage_Cost" ColumnName="Beverage_Cost" />
+          <ScalarProperty Name="Order_Number" ColumnName="Order_Number" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="Beverage_ID" ColumnName="Beverage_ID" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="Extras_ID" ColumnName="Extras_ID" />
+          <ScalarProperty Name="Customer_FirstName" ColumnName="Customer_FirstName" />
+          <ScalarProperty Name="Customer_LastName" ColumnName="Customer_LastName" />
+          <ScalarProperty Name="Beverage_Name" ColumnName="Beverage_Name" />
+          <ScalarProperty Name="Beverage_Quantity" ColumnName="Beverage_Quantity" />
+          <ScalarProperty Name="Extras_Quantity" ColumnName="Extras_Quantity" />
+          <ScalarProperty Name="Order_Status" ColumnName="Order_Status" />
+          <ScalarProperty Name="Payment_Type" ColumnName="Payment_Type" />
+          <ScalarProperty Name="Total_Cost" ColumnName="Total_Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="BreweryServicesModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
+          <ScalarProperty Name="Vehicle_Name" ColumnName="Vehicle_Name" />
+          <ScalarProperty Name="Vehicle_Model" ColumnName="Vehicle_Model" />
+          <ScalarProperty Name="Vehicle_Type" ColumnName="Vehicle_Type" />
+          <ScalarProperty Name="Vehicle_NextService" ColumnName="Vehicle_NextService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
